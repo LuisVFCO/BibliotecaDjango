@@ -1,0 +1,17 @@
+<h1>Cadastro</h1>
+
+<form action="/cadastro/" method="POST">
+    {% csrf_token %}
+    
+    <label>Email:</label>
+    <input type="email" name="email">
+    <br><br>
+
+    <label>Senha:</label>
+    <input type="password" name="senha">
+    <br><br>
+
+    <button type="submit">Cadastre-se Aqui</button>
+</form>
+
+
