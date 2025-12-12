@@ -1,17 +1,27 @@
-<h1>Cadastro</h1>
+{% extends "base_minimal.html" %}
+{% block title %}Cadastro{% endblock %}
 
-<form action="/cadastro/" method="POST">
-    {% csrf_token %}
-    
-    <label>Email:</label>
-    <input type="email" name="email">
-    <br><br>
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
 
-    <label>Senha:</label>
-    <input type="password" name="senha">
-    <br><br>
+  <div class="form-row">
+    <label>E-mail</label>
+    <input type="email" name="email" required>
+  </div>
 
-    <button type="submit">Cadastre-se Aqui</button>
+  <div class="form-row">
+    <label>Senha</label>
+    <input type="password" name="senha" required>
+  </div>
+
+  <button class="primary" type="submit" style="width:100%; margin-top:12px;">Cadastrar</button>
+
+  <p style="text-align:center; margin-top:15px; font-size:14px;">
+    Já tem conta? <a href="/login/">Entrar</a>
+  </p>
 </form>
+{% endblock %}
+
 
 

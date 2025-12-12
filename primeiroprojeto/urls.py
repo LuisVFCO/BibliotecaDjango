@@ -19,7 +19,11 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
+    path('', views.redirecionar_para_cadastro),
     path('admin/', admin.site.urls),
     path('cadastro/', views.home, name='cadastro'),
     path('login/', views.login, name='login'),
+    path('estoque/', views.estoque_home, name='estoque_home'),
+    path('estoque/cadastrar/', views.cadastrar_livro, name='cadastrar_livro'),
+    path('estoque/movimentar/', views.movimentar_estoque, name='movimentar_estoque'),
 ]

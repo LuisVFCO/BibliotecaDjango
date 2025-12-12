@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Movimentar Estoque{% endblock %}
+
+{% block content %}
+<h3 style="color:#222;">Entrada/Saída de Estoque</h3>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <div class="form-row">
+    <label>Livro</label>
+    <select name="id_livro">
+      {% for l in livros %}
+        <option value="{{ l.id_livro }}">{{ l.id_livro }} - {{ l.titulo }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label>Tipo</label>
+    <select name="tipo">
+      <option value="entrada">Entrada</option>
+      <option value="saida">Saída</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label>Quantidade</label>
+    <input type="number" name="qtd" min="1" value="1">
+  </div>
+
+  <button class="primary" type="submit">Executar</button>
+</form>
+
+{% endblock %}
+
+

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Estoque{% endblock %}
+
+{% block content %}
+
+<!-- POP-UP CONTROLADO POR CHECKBOX -->
+<input type="checkbox" id="alert-toggle" class="alert-toggle" {% if alertas %}checked{% endif %}>
+
+<div class="alert-box">
+    <div class="alert-content">
+        <h2>⚠️ ALERTA DE ESTOQUE</h2>
+
+        <ul style="text-align:left; margin:10px 0;">
+            {% for e in alertas %}
+                <li><b>{{ e.livro.titulo }}</b> — {{ e.quantidade }} unidade(s)</li>
+            {% endfor %}
+        </ul>
+
+        <!-- FECHAR POPUP -->
+        <label for="alert-toggle" class="alert-btn">Voltar</label>
+    </div>
+</div>
+
+
+<!-- CAMPO DE PESQUISA (DECORATIVO) -->
+<div class="search-line">
+  <input placeholder="Pesquisar Livros">
+</div>
+
+<!-- TABELA DE LIVROS -->
+<div class="table-wrap">
+  <table class="books">
+    <thead>
+      <tr>
+        <th>Qnt.</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Lançamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in livros %}
+        <tr>
+          <td>{{ l.estoque.quantidade|default:0 }}</td>
+          <td>{{ l.titulo }}</td>
+          <td>{{ l.autor }}</td>
+          <td>{{ l.data_lanc }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+

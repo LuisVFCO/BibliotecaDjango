@@ -1,15 +1,23 @@
-<h1>Login</h1>
+{% extends "base_minimal.html" %}
+{% block title %}Login{% endblock %}
 
-<form action="/login/" method="POST">
-    {% csrf_token %}
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-row">
+    <label>E-mail</label>
+    <input type="email" name="email" required>
+  </div>
 
-    <label>Email:</label>
-    <input type="email" name="email">
-    <br><br>
+  <div class="form-row">
+    <label>Senha</label>
+    <input type="password" name="senha" required>
+  </div>
 
-    <label>Senha:</label>
-    <input type="password" name="senha">
-    <br><br>
+  <button class="primary" type="submit" style="width:100%; margin-top:12px;">Entrar</button>
 
-    <button type="submit">Entrar</button>
+  <p style="text-align:center; margin-top:15px; font-size:14px;">
+    Não tem conta? <a href="/cadastro/">Criar</a>
+  </p>
 </form>
+{% endblock %}
