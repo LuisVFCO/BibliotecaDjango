@@ -14,7 +14,7 @@ A interface (**HTML e CSS**) foi criada com apoio do **ChatGPT**, pois o foco pr
 
 ## 👨‍💻 Desenvolvedores
 
-- **Adoniis Vinicius**  
+- **Adonis Vinicius**  
 - **Alan Vitor**  
 - **Luis Vinicius**
 
